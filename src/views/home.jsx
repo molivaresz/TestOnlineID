@@ -5,10 +5,31 @@ const Home = () => {
 
     const CapturaDoc = async (env_facial,IdSesion) => {
         try {
-            alert(env_facial)
-            alert(IdSesion)
-          /*  if (env_facial == "s") {
-                TOCautocapture('containerautocaptura', {
+            if (env_facial == "s") {
+                AuthModule(document.querySelector("#containerverificacion"), {
+                    authflow: "facevsdoc", // o "facevstoken"
+                    authmodule_session: IdSesion,
+                    modules_retry: 1,
+                    no_slider: true,
+                    country: ["chl", "pass"],
+                    client_audit: {
+                        transaction_id: "TRANSACEX_ID",
+                        id_user: "9747182-7",
+                        doctype: "CHL2",
+                        nat: "CHL",
+                    },
+                    callback: (data) => {
+                        console.log("Verificación exitosa:", data);
+                    },
+                    error: (data) => {
+                        console.error("Error durante la verificación:", data);
+                    }
+                });
+            }
+
+
+
+            /*    TOCautocapture('containerautocaptura', {
                     locale: "es",
                     session_id: IdSesion,
                     document_type: "CHL2",
@@ -19,8 +40,9 @@ const Home = () => {
                     },
                     failure: function(error){ alert(error); }
                 });
-            } 
-            else {
+                */
+ 
+           /* else {
                 TOCautocapture('containerautocaptura', {
                     locale: "es",
                     session_id: IdSesion,
@@ -66,7 +88,7 @@ const Home = () => {
         </form>    
     </div>
 
-    <div className="cuadrocaptura" id='containerautocaptura'></div>
+    <div className="cuadroverificacion" id='containerverificacion'></div>
     </>
     )
 }
