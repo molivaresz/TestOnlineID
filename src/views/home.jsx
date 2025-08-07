@@ -19,7 +19,7 @@ const Home = () => {
                         nat: "CHL",
                     },
                     callback: (data) => {
-                        console.log("Verificación exitosa:", data);
+                        document.getElementById("Rverif").value = data;
                     },
                     error: (data) => {
                         console.error("Error durante la verificación:", data);
@@ -76,15 +76,13 @@ const Home = () => {
         </form>
         <form>
             <div className="mb-3">
-                <h2>CAPTURA</h2>
+                <h2>VERIFICACION</h2>
                 <label className="form-label">ID Sesion</label>
                 <input type="text" className="form-control" id="IdSesion" />
-                <label className="form-label">Token Front</label>
-                <input type="text" className="form-control" id="Tfront" />
-                <label className="form-label">Token Back</label>
-                <input type="text" className="form-control" id="Tback" />
+                <label className="form-label">Respuesta</label>
+                <input type="text" className="form-control" id="Rverif" />
             </div>
-            <button type="button" onClick={() => CapturaDoc(document.getElementById("envselect").value,document.getElementById("IdSesion").value)} className="btn btn-outline-primary m-2">Captura</button>
+            <button type="button" onClick={() => CapturaDoc(document.getElementById("envselect").value,document.getElementById("IdSesion").value)} className="btn btn-outline-primary m-2">Verificar</button>
         </form>    
     </div>
 
