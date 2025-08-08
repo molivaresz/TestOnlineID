@@ -19,7 +19,7 @@ const Home = () => {
                         nat: "CHL",
                     },
                     callback: (data) => {
-                        document.getElementById("Rverif").value = data;
+                        document.getElementById("Rverif").value = data.token;
                     },
                     error: (data) => {
                         console.error("Error durante la verificación:", data);
